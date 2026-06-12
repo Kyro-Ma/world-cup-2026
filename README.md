@@ -84,6 +84,13 @@ intensityScore = min(100, strengthBase + stageBonus + rivalryBonus + starBonus)
 **输出**：高赔率冷门 + 爆冷空间
 **例**：「赔率 ≥8 的冷门」 / 「找冷门」
 
+#### 4️⃣ 预测模式（比分预测）
+**输入**：一场比赛（场次 ID / 队名 + 队名 / 队名 + 「能赢吗」）
+**输出**：胜平负概率 + top 5 比分 + 大小球 + 双方进球
+**例**：「B1 比分」 / 「加拿大 vs 波黑谁赢」 / 「阿根廷能赢吗」 / 「predict D1」
+
+**模型**（`assets/prediction.md`）：FIFA 排名差 + 主场优势 + Poisson 进球 + 可选缺阵修正
+
 ---
 
 ## 📂 文件结构
@@ -96,7 +103,8 @@ skills/world-cup-2026/
 │   ├── matches.json         # 104 场（72 小组 + 32 淘汰）
 │   ├── teams.json           # 48 队 FIFA 排名 / 分级 / 预热赔率
 │   ├── rivalries.json       # 51 条恩怨局 + 球星加成
-│   └── scoring.md           # 强度公式推导
+│   ├── scoring.md           # 强度公式推导
+│   └── prediction.md        # 比分预测模型（Poisson + 排名差）
 ```
 
 ## 🗃️ 数据 schema
